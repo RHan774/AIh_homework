@@ -1,0 +1,159 @@
+(AI_rrh) E:\桌面\学习\专业课\人工智能\lab\Week3-BP>python Train_Classifier.py
+Epoch 10 Train Accuracy = 0.93048 loss = 0.23594437570814975
+Epoch 10 Val   Accuracy = 0.9304 loss = 0.2420925706486235
+------------------- saving  model -------------------
+
+Epoch 20 Train Accuracy = 0.94678 loss = 0.1809464919353318
+Epoch 20 Val   Accuracy = 0.9419 loss = 0.196428290125699
+------------------- saving  model -------------------
+
+Epoch 30 Train Accuracy = 0.95502 loss = 0.15038617621753597
+Epoch 30 Val   Accuracy = 0.9474 loss = 0.16984720134208467
+------------------- saving  model -------------------
+
+Epoch 40 Train Accuracy = 0.96048 loss = 0.134092446750655
+Epoch 40 Val   Accuracy = 0.9524 loss = 0.161426524365957
+------------------- saving  model -------------------
+
+Epoch 50 Train Accuracy = 0.96546 loss = 0.11579420486304087
+Epoch 50 Val   Accuracy = 0.9555 loss = 0.14431159142458172
+------------------- saving  model -------------------
+
+Epoch 60 Train Accuracy = 0.96734 loss = 0.10730654394307192
+Epoch 60 Val   Accuracy = 0.957 loss = 0.13935191578814268
+------------------- saving  model -------------------
+
+Epoch 70 Train Accuracy = 0.96696 loss = 0.10676411646098793
+Epoch 70 Val   Accuracy = 0.9571 loss = 0.13925197834970174
+------------------- saving  model -------------------
+
+Epoch 80 Train Accuracy = 0.97252 loss = 0.09180730628244779
+Epoch 80 Val   Accuracy = 0.9601 loss = 0.13412332456690507
+------------------- saving  model -------------------
+
+Epoch 90 Train Accuracy = 0.97398 loss = 0.08715880763270008
+Epoch 90 Val   Accuracy = 0.9603 loss = 0.12897949368087364
+------------------- saving  model -------------------
+
+Epoch 100 Train Accuracy = 0.974 loss = 0.08618158313104454
+Epoch 100 Val   Accuracy = 0.9602 loss = 0.12491631764503866
+Epoch 110 Train Accuracy = 0.97704 loss = 0.07791486718102095
+Epoch 110 Val   Accuracy = 0.9633 loss = 0.12288420056097886
+------------------- saving  model -------------------
+
+Epoch 120 Train Accuracy = 0.97772 loss = 0.07268929157039138
+Epoch 120 Val   Accuracy = 0.9639 loss = 0.1163391143739148
+------------------- saving  model -------------------
+
+Epoch 130 Train Accuracy = 0.97996 loss = 0.06766261485356302
+Epoch 130 Val   Accuracy = 0.9619 loss = 0.12278177973476377
+Epoch 140 Train Accuracy = 0.97726 loss = 0.07402052039204361
+Epoch 140 Val   Accuracy = 0.9619 loss = 0.12252702543451408
+Epoch 150 Train Accuracy = 0.98056 loss = 0.06504332529110357
+Epoch 150 Val   Accuracy = 0.9652 loss = 0.11396000858541186
+------------------- saving  model -------------------
+
+Epoch 160 Train Accuracy = 0.98082 loss = 0.06228327170422711
+Epoch 160 Val   Accuracy = 0.9655 loss = 0.11713034959933381
+------------------- saving  model -------------------
+
+Epoch 170 Train Accuracy = 0.98146 loss = 0.05985116282671178
+Epoch 170 Val   Accuracy = 0.9648 loss = 0.1120533563966575
+Epoch 180 Train Accuracy = 0.9824 loss = 0.05578279540452969
+Epoch 180 Val   Accuracy = 0.9661 loss = 0.11156309828322
+------------------- saving  model -------------------
+
+Epoch 190 Train Accuracy = 0.9835 loss = 0.05458223284962228
+Epoch 190 Val   Accuracy = 0.9671 loss = 0.1120978845559802
+------------------- saving  model -------------------
+
+Epoch 200 Train Accuracy = 0.98468 loss = 0.05152021009296785
+Epoch 200 Val   Accuracy = 0.9677 loss = 0.10836937255070772
+------------------- saving  model -------------------
+
+Epoch 210 Train Accuracy = 0.98718 loss = 0.04228120713521061
+Epoch 210 Val   Accuracy = 0.9667 loss = 0.11042111236251927
+Epoch 220 Train Accuracy = 0.98634 loss = 0.04447330374854608
+Epoch 220 Val   Accuracy = 0.9656 loss = 0.10917254049012629
+Epoch 230 Train Accuracy = 0.98684 loss = 0.04328759569688572
+Epoch 230 Val   Accuracy = 0.9691 loss = 0.11010572158991938
+------------------- saving  model -------------------
+
+Epoch 240 Train Accuracy = 0.98798 loss = 0.03907826957834061
+Epoch 240 Val   Accuracy = 0.9677 loss = 0.10756577801325304
+Epoch 250 Train Accuracy = 0.98936 loss = 0.03625551071081823
+Epoch 250 Val   Accuracy = 0.9675 loss = 0.1089446498897367
+Epoch 260 Train Accuracy = 0.98932 loss = 0.03539029409942644
+Epoch 260 Val   Accuracy = 0.9675 loss = 0.10853098119264123
+Epoch 270 Train Accuracy = 0.9905 loss = 0.03253632689966292
+Epoch 270 Val   Accuracy = 0.9693 loss = 0.10149887661323741
+------------------- saving  model -------------------
+
+Epoch 280 Train Accuracy = 0.99032 loss = 0.03342034175319031
+Epoch 280 Val   Accuracy = 0.9701 loss = 0.09993919504032457
+------------------- saving  model -------------------
+
+Epoch 290 Train Accuracy = 0.99008 loss = 0.03381985004195121
+Epoch 290 Val   Accuracy = 0.9705 loss = 0.10066116058257761
+------------------- saving  model -------------------
+
+Epoch 300 Train Accuracy = 0.99122 loss = 0.0311613674624041
+Epoch 300 Val   Accuracy = 0.9721 loss = 0.09959244291058734
+------------------- saving  model -------------------
+
+Epoch 310 Train Accuracy = 0.9918 loss = 0.029519935016633195
+Epoch 310 Val   Accuracy = 0.9686 loss = 0.10319731520410241
+Epoch 320 Train Accuracy = 0.99226 loss = 0.027607688821527625
+Epoch 320 Val   Accuracy = 0.969 loss = 0.1051677370291972
+Epoch 330 Train Accuracy = 0.99262 loss = 0.025828165363805885
+Epoch 330 Val   Accuracy = 0.9709 loss = 0.103174863350983
+Epoch 340 Train Accuracy = 0.99146 loss = 0.028476661851636505
+Epoch 340 Val   Accuracy = 0.9693 loss = 0.1011483139572082
+Epoch 350 Train Accuracy = 0.9926 loss = 0.02554797868488005
+Epoch 350 Val   Accuracy = 0.9696 loss = 0.0963378355311228
+Epoch 360 Train Accuracy = 0.9943 loss = 0.02150555321883718
+Epoch 360 Val   Accuracy = 0.973 loss = 0.09777842898764591
+------------------- saving  model -------------------
+
+Epoch 370 Train Accuracy = 0.99396 loss = 0.02182028448886955
+Epoch 370 Val   Accuracy = 0.9715 loss = 0.0948918576272531
+Epoch 380 Train Accuracy = 0.99316 loss = 0.02297675374495538
+Epoch 380 Val   Accuracy = 0.9726 loss = 0.09487161526497162
+Epoch 390 Train Accuracy = 0.99362 loss = 0.02271118875835525
+Epoch 390 Val   Accuracy = 0.9721 loss = 0.09805882915207242
+Epoch 400 Train Accuracy = 0.99468 loss = 0.020268368772010992
+Epoch 400 Val   Accuracy = 0.9715 loss = 0.10072024054947054
+Epoch 410 Train Accuracy = 0.99358 loss = 0.02292595469953863
+Epoch 410 Val   Accuracy = 0.97 loss = 0.10040677233808813
+Epoch 420 Train Accuracy = 0.99336 loss = 0.02299285630349524
+Epoch 420 Val   Accuracy = 0.9692 loss = 0.10643240634073686
+Epoch 430 Train Accuracy = 0.99572 loss = 0.017245378587200717
+Epoch 430 Val   Accuracy = 0.9722 loss = 0.10340716005627192
+Epoch 440 Train Accuracy = 0.99528 loss = 0.0183231923387575
+Epoch 440 Val   Accuracy = 0.9708 loss = 0.09933150798277472
+Epoch 450 Train Accuracy = 0.99708 loss = 0.014280779852411272
+Epoch 450 Val   Accuracy = 0.973 loss = 0.09461619056528431
+Epoch 460 Train Accuracy = 0.99652 loss = 0.014501790505658965
+Epoch 460 Val   Accuracy = 0.9715 loss = 0.09804801935753706
+Epoch 470 Train Accuracy = 0.99698 loss = 0.013206068616078198
+Epoch 470 Val   Accuracy = 0.9729 loss = 0.09156723754899108
+Epoch 480 Train Accuracy = 0.99778 loss = 0.010772014525564587
+Epoch 480 Val   Accuracy = 0.9724 loss = 0.09695110510114499
+Epoch 490 Train Accuracy = 0.99812 loss = 0.010464181853779207
+Epoch 490 Val   Accuracy = 0.9718 loss = 0.10094245643283467
+Epoch 500 Train Accuracy = 0.9979 loss = 0.010509593486105319
+Epoch 500 Val   Accuracy = 0.9738 loss = 0.09807601158833569
+------------------- saving  model -------------------
+
+Epoch 510 Train Accuracy = 0.99882 loss = 0.007994564573787076
+Epoch 510 Val   Accuracy = 0.9731 loss = 0.10048178648539219
+Epoch 520 Train Accuracy = 0.99892 loss = 0.00717012867014299
+Epoch 520 Val   Accuracy = 0.9734 loss = 0.09434730600353271
+Epoch 530 Train Accuracy = 0.99936 loss = 0.005823141230182879
+Epoch 530 Val   Accuracy = 0.9724 loss = 0.0987099758313995
+Epoch 540 Train Accuracy = 0.99952 loss = 0.005146489216828736
+Epoch 540 Val   Accuracy = 0.9717 loss = 0.09883290402437614
+Epoch 550 Train Accuracy = 0.99956 loss = 0.004721768231356729
+Epoch 550 Val   Accuracy = 0.9716 loss = 0.0994555002492213
+Epoch 560 Train Accuracy = 0.99968 loss = 0.0044460177340733
+Epoch 560 Val   Accuracy = 0.9725 loss = 0.09894027040953371

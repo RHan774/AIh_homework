@@ -4,3 +4,5 @@ git init //把这个目录变成Git可以管理的仓库
 　　git commit -m "first commit" //把文件提交到仓库
 　　git remote add origin git@github.com:wangjiax9/practice.git //关联远程仓库
 　　git push -u origin master //把本地库的所有内容推送到远程库上
+
+git rm --cached （保留本地文件）删除仓库中文件

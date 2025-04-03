@@ -2,8 +2,59 @@ import numpy as np
 import os
 import my_utils
 
+class Dropout(object):
+    def __init__(self, dropout_rate=0.0):
+        """
+        初始化Dropout层
+        
+        Args:
+            dropout_rate: dropout概率，表示神经元被丢弃的概率
+        """
+        self.dropout_rate = dropout_rate
+        self.mask = None
+        self.is_training = True
+    
+    def set_training(self, is_training):
+        """设置是否为训练模式"""
+        self.is_training = is_training
+    
+    def forward(self, input_data):
+        """
+        前向传播，应用dropout
+        
+        Args:
+            input_data: 输入数据
+            
+        Returns:
+            应用dropout后的数据
+        """
+        if self.is_training and self.dropout_rate > 0:
+            # 生成随机掩码，如果随机值小于p则丢弃(置为0)
+            self.mask = np.random.binomial(1, 1 - self.dropout_rate, size=input_data.shape)
+            # 缩放未丢弃的神经元输出，保持期望值不变
+            return input_data * self.mask / (1 - self.dropout_rate)
+        else:
+            # 测试阶段不使用dropout
+            return input_data
+    
+    def backward(self, delta_output):
+        """
+        反向传播，传递梯度
+        
+        Args:
+            delta_output: 上一层传来的梯度
+            
+        Returns:
+            经过dropout层的梯度
+        """
+        if self.is_training and self.dropout_rate > 0:
+            # 反向传播时应用相同的掩码
+            return delta_output * self.mask / (1 - self.dropout_rate)
+        else:
+            return delta_output
+
 class MP(object):
-    def __init__(self, task, batch_size, input_size, output_size, init_method, random_range, dropout_rate=0.0, output_layer=False):
+    def __init__(self, task, batch_size, input_size, output_size, init_method, random_range, output_layer=False):
         """
         Args:
             task: 回归or多分类
@@ -12,14 +63,11 @@ class MP(object):
             output_size: 输出数据大小
             init_method: 初始化权重的方法
             random_range: 初始化参数时的范围或标准差
-            dropout_rate: dropout概率 (0.0表示不使用dropout)
             output_layer: 是否为神经网络最后一层. Defaults to False.
         """
         self.task = task
         self.batch_size = batch_size
         self.input_data = np.zeros((batch_size, input_size)) # 输入数据x
-        self.dropout_rate = dropout_rate
-        self.dropout_mask = None
         self.is_training = True  # 标记是否为训练模式
         
         # 使用不同的初始化方法
@@ -78,18 +126,9 @@ class MP(object):
 
     def forward(self, input_data, activation_function):
         self.input_data = input_data.reshape((self.batch_size, -1))
-        
-        # 应用dropout（仅在训练模式下）
-        if self.is_training and self.dropout_rate > 0:
-            # 创建dropout掩码
-            self.dropout_mask = np.random.binomial(1, 1 - self.dropout_rate, size=self.input_data.shape) / (1 - self.dropout_rate)
-            # 应用dropout掩码
-            dropout_input = self.input_data * self.dropout_mask
-        else:
-            dropout_input = self.input_data
             
-        # 对输入做线性运算：Wx + b                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-        self.linear_data = np.matmul(dropout_input, self.weight) + self.bias
+        # 对输入做线性运算：Wx + b
+        self.linear_data = np.matmul(self.input_data, self.weight) + self.bias
         # 对线性运算结果执行激活函数（或不执行），得到输出
         if self.output_layer == True:
             if self.task == "Regression":
@@ -100,41 +139,31 @@ class MP(object):
             self.output_data = activation_function(self.linear_data)    # 对中间层调用激活函数
         return self.output_data
         
-    def backward(self, loss, activation_derivation):
+    def backward(self, grade, activation_derivation):
         if self.output_layer:
             # 回归输出层和分类输出层对linear_data求导结果
-            delta_output = -loss    # loss = true - pred
+            delta_linear_output = -grade    # loss = true - pred
         else:
             # 非输出层，需要计算激活函数的导数
-            delta_output = loss * activation_derivation(self.output_data)   # loss是上一层传下来的
+            delta_linear_output = grade * activation_derivation(self.output_data)   # loss是上一层传下来的
         
         # 计算权重和偏置的梯度
-        # 如果在前向传播时使用了dropout，这里使用相同的mask
-        if self.is_training and self.dropout_rate > 0:
-            input_data_with_dropout = self.input_data * self.dropout_mask
-        else:
-            input_data_with_dropout = self.input_data
-            
         # input_data: (batch_size, input_size)
-        # delta_output: (batch_size, output_size)
-        weight_gradient = np.matmul(input_data_with_dropout.T, delta_output) / self.batch_size
-        bias_gradient = np.mean(delta_output, axis=0, keepdims=True)
+        # delta_linear_output: (batch_size, output_size)
+        weight_gradient = np.matmul(self.input_data.T, delta_linear_output) / self.batch_size
+        bias_gradient = np.mean(delta_linear_output, axis=0, keepdims=True)
         
         # 更新参数的累计梯度
         self.delta_weight -= weight_gradient
         self.delta_bias -= bias_gradient
         
-        # 计算传递给前一层的误差
+        # 计算传递给前一层的梯度
         # weight: (input_size, output_size)
-        # delta_output: (batch_size, output_size)
+        # delta_linear_output: (batch_size, output_size)
         # backward_loss应为 (batch_size, input_size)
-        backward_loss = np.matmul(delta_output, self.weight.T)
-        
-        # 如果使用了dropout，反向传播时也需要应用相同的mask
-        if self.is_training and self.dropout_rate > 0:
-            backward_loss = backward_loss * self.dropout_mask
+        backward_grade = np.matmul(delta_linear_output, self.weight.T)
             
-        return backward_loss
+        return backward_grade
     
     def update(self, lr):
         self.weight += lr * self.delta_weight
@@ -207,20 +236,30 @@ class MLP(object):
         self.is_load = is_load
         self.load_path = model_path
         
+        # 网络层列表
         self.layers = []
+        # Dropout层列表
+        self.dropouts = []
+        
         last_index = len(layer_arch) - 1
+        
+        # 添加输入层dropout（处理输入数据）
+        if self.use_dropout:
+            self.dropouts.append(Dropout(self.dropout_rates[0]))
+        
         # 中间层
         for hide_index in range(1, last_index):
-            # task, batch_size, input_size, output_size, init_method, random_range, dropout_rate, output_layer
-            dropout_rate = self.dropout_rates[hide_index] if self.use_dropout else 0.0
+            # task, batch_size, input_size, output_size, init_method, random_range, output_layer
             self.layers.append(MP(self.task, self.batch_size, self.layer_arch[hide_index-1],
-                                  self.layer_arch[hide_index], self.init_method, self.random_range, 
-                                  dropout_rate, False))
+                                  self.layer_arch[hide_index], self.init_method, self.random_range, False))
+            # 每个隐藏层后面添加一个dropout层
+            if self.use_dropout:
+                self.dropouts.append(Dropout(self.dropout_rates[hide_index]))
+        
         # 输出层
-        dropout_rate = self.dropout_rates[last_index] if self.use_dropout else 0.0
         self.layers.append(MP(self.task, self.batch_size, self.layer_arch[last_index-1],
-                              self.layer_arch[last_index], self.init_method, self.random_range,
-                              dropout_rate, True))
+                              self.layer_arch[last_index], self.init_method, self.random_range, True))
+        
         # 加载已有模型数据
         if is_load:
             self.load_model()
@@ -313,16 +352,37 @@ class MLP(object):
         for layer in self.layers:
             layer.set_training(is_training)
         
-    def forward(self, input_data):    
-        for layer in self.layers:
-            # 一层层向前传播
+        for dropout in self.dropouts:
+            dropout.set_training(is_training)
+        
+    def forward(self, input_data):
+        # 首先应用输入层dropout（如果存在）
+        if self.use_dropout:
+            input_data = self.dropouts[0].forward(input_data)
+        
+        # 通过每一层
+        for i, layer in enumerate(self.layers):
+            # 前向传播通过当前层
             input_data = layer.forward(input_data, self.activation_function)
+            # 如果不是最后一层且使用dropout，则应用dropout
+            if i < len(self.layers) - 1 and self.use_dropout:
+                input_data = self.dropouts[i+1].forward(input_data)
+                
         return input_data
     
     def backward(self, loss):
-        for layer in reversed(self.layers):
-            # 一层层反向传播
-            loss = layer.backward(loss, self.activation_derivation)
+        # 从最后一层开始反向传播
+        for i in range(len(self.layers)-1, -1, -1):
+            # 通过dropout层反向传播（如果存在且不是最后一层）
+            if i < len(self.layers) - 1 and self.use_dropout:
+                loss = self.dropouts[i+1].backward(loss)
+            
+            # 通过当前层反向传播
+            loss = self.layers[i].backward(loss, self.activation_derivation)
+            
+        # 如果存在输入层dropout，则通过它反向传播
+        if self.use_dropout:
+            loss = self.dropouts[0].backward(loss)
             
     def update(self):
         for layer in self.layers:
