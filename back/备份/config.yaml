@@ -1,0 +1,76 @@
+# 添加全局配置
+Global:
+  random_seed: 42  # 随机种子
+
+DataProcess:
+  Regression:
+    train_num: 8000     # 训练样本数
+    validate_num: 1000  # 验证样本数
+    test_num: 1000      # 测试样本数
+    noise_std: 0.009    # 噪声标准差(lab要求小于0.01)
+    data_path: "./dataset/sin_data/"  # 数据集存储地址
+
+  Classifier:
+    images_addr: "./dataset/train_data/train-images.idx3-ubyte"
+    labels_addr: "./dataset/train_data/train-labels.idx1-ubyte"
+    test_images: "./dataset/test_data/test-images.idx3-ubyte"        # 测试集地址（面试时给出）
+    test_labels: "./dataset/test_data/test-labels.idx1-ubyte"        # 测试集地址（面试时给出）
+    train_num: 50000       # 训练集大小
+    validate_num: 10000    # 验证集大小
+    test_num: 10000        # 测试集大小（面试时给出，可能要改）
+    flatten: True          # 是否将图片展平为(1,28*28)
+    one_hot: True          # 标签是否采用one hot形式
+    data_path: "./dataset/parse_data/"  # 数据集存储地址
+
+
+Regression:
+  Train:
+    batch_size: 20              # 一个batch中的数据数量
+    epoches: 6000               # 训练步数
+    layer_arch: [1,32,64,64,1]  # 神经网络架构
+    learning_rate: 0.01         # 学习率
+    data_size: 8000
+    init_method: 4              # 权重初始化方法: 0-零初始化, 1-随机初始化, 2-正态分布初始化, 3-Xavier/Glorot初始化, 4-He初始化, 5-稀疏初始化
+    init_params_random_range: 0.15  # 随机初始化和正态分布初始化的参数范围
+    activation_function: 0          # 0:sigmoid 1:relu 2:tanh 3:Leaky ReLU 4:PReLU 5:GELU 6:Swish 7:SwiGLU
+    x_data: "./dataset/sin_data/train_data_x.npy"
+    y_data: "./dataset/sin_data/train_data_y.npy"
+    is_load: False              # 是否使用已有模型
+    model_path: "./model/regression/"
+
+  Val:  
+    data_size: 1000
+    x_data: "./dataset/sin_data/validate_data_x.npy"
+    y_data: "./dataset/sin_data/validate_data_y.npy"
+
+  Test:
+    data_size: 1000
+    x_data: "./dataset/sin_data/test_data_x.npy"
+    y_data: "./dataset/sin_data/test_data_y.npy"
+
+
+Classifier:
+  Train:
+    batch_size: 120                  # 一个batch中的数据数量
+    epoches: 1000                     # 训练步数
+    layer_arch: [784,256,128,10]     # 神经网络架构
+    learning_rate: 0.01             # 学习率
+    data_size: 50000
+    init_method: 4              # 权重初始化方法: 0-零初始化, 1-随机初始化, 2-正态分布初始化, 3-Xavier/Glorot初始化, 4-He初始化, 5-稀疏初始化
+    init_params_random_range: 0.15  # 初始化参数的标准差-
+    activation_function: 0          # 0:sigmoid 1:relu 2:tanh 3:Leaky ReLU 4:PReLU 5:GELU 6:Swish 7:SwiGLU
+    data_path: "./dataset/parse_data/train_data.npy"
+    label_path: "./dataset/parse_data/train_label.npy"
+    is_load: True                  # 是否使用已有模型
+    model_path: "./model/classifier/train_test/"
+
+  Val:
+    data_size: 10000
+    data_path: "./dataset/parse_data/test_data.npy"
+    label_path: "./dataset/parse_data/test_label.npy"
+
+  Test: # 面试时给测试集，可能需要修改
+    data_size: 10000
+    data_path: "./dataset/parse_data/test_data.npy"
+    label_path: "./dataset/parse_data/test_label.npy"
+    

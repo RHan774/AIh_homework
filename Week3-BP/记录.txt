@@ -1,0 +1,201 @@
+最好的模型在train_test中：在debug（continue_fast）基础上，先改变batch为40跑了100epoch，再改变batch为80跑了100epoch，最后batch改为100跑了500epoch。
+只存储当前val accuracy最高的模型
+Train Accuracy = 0.99308 loss = 0.022467064746803163
+Val   Accuracy = 0.9846 loss = 0.0499052127376682
+Test  Accuracy = 0.9754 loss = 0.08218943266483944
+----------------------已改为：
+Train Accuracy = 0.9975 loss = 0.010558483554443212
+Val   Accuracy = 0.983 loss = 0.05475836953609605
+Test  Accuracy = 0.9768 loss = 0.092008651933822
+----------------------已改为：
+Train Accuracy = 0.99006 loss = 0.02927244428178431
+Val   Accuracy = 0.9816 loss = 0.05677528849426376
+Test  Accuracy = 0.9797 loss = 0.06462252911626641
+
+最好的应该是debug：改了架构和random_range
+一、目前存储的模型：sigmoid和softmax都是原始的,测试用改过的sigmoid可以不报错
+Test Accuracy = 0.9629 loss = 0.12040058212878714
+Epoch 280 Train Accuracy = 0.97344 1oss = 0.08348671330727761
+Epoch 280 Val   Accuracy =0.9654 1oss = 0.1196765664365405
+    batch_size: 20                  # 一个batch中的数据数量
+    epoches: 300（280最大）                     # 训练步数
+    layer_arch: [784,128,64,10]     # 神经网络架构
+    learning_rate: 0.01             # 学习率
+    data_size: 50000
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 0          # 0:sigmoid; 1:relu 2:tanh
+    
+
+二、tanh、原始softmax
+Test Accuracy = 0.9434 loss = 0.1849579746806927
+Epoch 600 Train Accuracy = 0.9541 loss = 0.1417170861898009
+Epoch 600 Val   Accuracy = 0.9478 loss = 0.17853277922516517
+    batch_size: 20                  # 一个batch中的数据数量
+    epoches: 600                     # 训练步数
+    layer_arch: [784,128,64,10]     # 神经网络架构
+    learning_rate: 0.01             # 学习率
+    data_size: 50000
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 2          # 0:sigmoid; 1:relu 2:tanh
+
+
+***sigmoid_new:    Test Accuracy = 0.9717 loss = 0.09698302975209809
+Epoch 840 Train Accuracy = 0.98824 loss = 0.036436011487346175
+Epoch 840 Val   Accuracy = 0.9734 loss = 0.10076478614612626
+------------------- saving  model -------------------
+Epoch 1000 Train Accuracy = 0.99068 loss = 0.029325209759110966
+Epoch 1000 Val   Accuracy = 0.9709 loss = 0.10760164886825264
+
+***sigmoid_原： Test Accuracy = 0.9722 loss = 0.10376406924802
+Epoch 840 Train Accuracy = 0.98944 loss = 0.032638413445676154
+Epoch 840 Val   Accuracy = 0.9749 loss = 0.0969068228815562
+------------------- saving  model -------------------
+Epoch 1000 Train Accuracy = 0.98876 loss = 0.03484402407555004
+Epoch 1000 Val   Accuracy = 0.9684 loss = 0.1139634717427676
+
+***sigmoid_random： Test Accuracy = 0.9689 loss = 0.10603920937606431
+Epoch 980 Train Accuracy = 0.98542 loss = 0.044847115541686425
+Epoch 980 Val   Accuracy = 0.9719 loss = 0.11028475815898493
+------------------- saving  model -------------------
+Epoch 1000 Train Accuracy = 0.9854 loss = 0.0442418948368634
+Epoch 1000 Val   Accuracy = 0.9702 loss = 0.10922285396911473
+
+***sigmoid_nnew： Test Accuracy = 0.9701 loss = 0.1032842542005304
+Epoch 840 Train Accuracy = 0.98812 loss = 0.03719912324776674
+Epoch 840 Val   Accuracy = 0.9721 loss = 0.10843986328317676
+------------------- saving  model -------------------
+Epoch 1000 Train Accuracy = 0.98752 loss = 0.03855460976534478
+Epoch 1000 Val   Accuracy = 0.9698 loss = 0.11116664974326937
+
+***sigmoid_debug： Test Accuracy = 0.9731 loss = 0.09865793740872865
+Epoch 990 Train Accuracy = 0.9929 loss = 0.02227046505761552
+Epoch 990 Val   Accuracy = 0.9752 loss = 0.09623265884982658
+------------------- saving  model -------------------
+
+Epoch 1000 Train Accuracy = 0.99284 loss = 0.021504324189211187
+Epoch 1000 Val   Accuracy = 0.9735 loss = 0.09885407422430864
+
+三、relu、改后softmax（不改会溢出）Test Accuracy = 0.7445 loss = 2.3639471083501893
+Epoch 10 Train Accuracy = 0.11356 loss = 2.301036049793347
+Epoch 10 Val   Accuracy = 0.1064 loss = 2.301874513435879
+Epoch 20 Train Accuracy = 0.11356 loss = 2.3010282435853844
+Epoch 20 Val   Accuracy = 0.1064 loss = 2.3020393596078343
+    batch_size: 20                  # 一个batch中的数据数量
+    epoches: 300                     # 训练步数
+    layer_arch: [784,128,64,10]     # 神经网络架构
+    learning_rate: 0.01             # 学习率
+    data_size: 50000
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 1          # 0:sigmoid; 1:relu 2:tanh
+
+
+
+
+
+
+
+
+回归：
+relu更快收敛：
+Epoch 10 Train loss = 5.859835540333505e-06
+Epoch 10 Val   loss = 5.838446566643626e-06
+Epoch 20 Train loss = 4.58642660535601e-06
+Epoch 20 Val   loss = 4.5363057606769096e-06
+Epoch 30 Train loss = 4.385550008315338e-06
+Epoch 30 Val   loss = 4.374980123025358e-06
+Epoch 40 Train loss = 4.311837645542287e-06
+Epoch 40 Val   loss = 4.311599696020927e-06
+Epoch 50 Train loss = 4.257360909561111e-06
+Epoch 50 Val   loss = 4.244737959763777e-06
+Epoch 60 Train loss = 4.347060019287621e-06
+Epoch 60 Val   loss = 4.320266573244082e-06
+tanh第二：
+Epoch 10 Train loss = 2.0320147722172783e-05
+Epoch 10 Val   loss = 2.0204123434843925e-05
+Epoch 20 Train loss = 5.792086968914942e-06
+Epoch 20 Val   loss = 5.890451775048066e-06
+Epoch 30 Train loss = 4.581688128063237e-06
+Epoch 30 Val   loss = 4.614142441746633e-06
+Epoch 40 Train loss = 4.416774468324337e-06
+Epoch 40 Val   loss = 4.3904270383392735e-06
+Epoch 50 Train loss = 4.509461651417861e-06
+Epoch 50 Val   loss = 4.497670322136527e-06
+Epoch 60 Train loss = 4.278101365482866e-06
+Epoch 60 Val   loss = 4.275997606270166e-06
+sigmoid最慢：
+Epoch 10 Train loss = 0.004075166061005486
+Epoch 10 Val   loss = 0.0039820878176615344
+Epoch 20 Train loss = 0.0007989855693606016
+Epoch 20 Val   loss = 0.0007860213662419369
+Epoch 30 Train loss = 0.0004184051440333662
+Epoch 30 Val   loss = 0.00041219518075635034
+Epoch 40 Train loss = 0.000236588213071593
+Epoch 40 Val   loss = 0.00023408395450140565
+Epoch 50 Train loss = 0.00014874652104656115
+Epoch 50 Val   loss = 0.0001470169386509171
+Epoch 60 Train loss = 0.00010192437598902833
+Epoch 60 Val   loss = 0.00010098826254530622
+Epoch 70 Train loss = 7.35785349981357e-05
+Epoch 70 Val   loss = 7.306627421754271e-05
+Epoch 80 Train loss = 5.60535043398134e-05
+Epoch 80 Val   loss = 5.604469264551042e-05
+后面容易出现zigzag现象：
+Epoch 1450 Train loss = 4.975299684679144e-06
+Epoch 1450 Val   loss = 4.986814583367378e-06
+Epoch 1460 Train loss = 5.239579076541945e-06
+Epoch 1460 Val   loss = 5.202808047659732e-06
+Epoch 1470 Train loss = 5.052694995087446e-06
+Epoch 1470 Val   loss = 5.062103491206929e-06
+Epoch 1480 Train loss = 5.107011509296545e-06
+Epoch 1480 Val   loss = 5.0718580702026995e-06
+Epoch 1490 Train loss = 5.006256840002506e-06
+Epoch 1490 Val   loss = 5.019785362104353e-06
+Epoch 1500 Train loss = 5.000624908734539e-06
+Epoch 1500 Val   loss = 4.980992825046141e-06
+Epoch 1510 Train loss = 6.0415043756496234e-06
+Epoch 1510 Val   loss = 6.097104587116166e-06
+Epoch 1520 Train loss = 5.079462334010819e-06
+Epoch 1520 Val   loss = 5.11079635771723e-06
+Epoch 1530 Train loss = 4.935485955475531e-06
+Epoch 1530 Val   loss = 4.939040373928155e-06
+
+一、tanh，其他原始
+Test loss = 4.003930421713516e-06
+Epoch 5640 Train loss = 4.065916434271513e-06
+Epoch 5640 Val   loss = 4.0683559947185754e-06
+    batch_size: 20              # 一个batch中的数据数量
+    epoches: 6000               # 训练步数
+    layer_arch: [1,32,64,64,1]  # 神经网络架构
+    learning_rate: 0.01         # 学习率
+    data_size: 8000
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 2          # 0:sigmoid; 1:relu 2:tanh
+
+二、relu，其他原始
+Test loss = 4.027855311840574e-06
+Epoch 3540 Train loss = 4.055337401616558e-06
+Epoch 3540 Val   loss = 4.085916052593533e-06
+    batch_size: 20              # 一个batch中的数据数量
+    epoches: 6000               # 训练步数
+    layer_arch: [1,32,64,64,1]  # 神经网络架构
+    learning_rate: 0.01         # 学习率
+    data_size: 8000
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 1          # 0:sigmoid; 1:relu 2:tanh
+
+
+三、sigmoid，原始
+Test loss = 4.192048995186497e-06
+Epoch 3670 Train loss = 4.220226636821884e-06
+Epoch 3670 Val   loss = 4.213638921248903e-06
+    batch_size: 20              # 一个batch中的数据数量
+    epoches: 6000               # 训练步数
+    layer_arch: [1,32,64,64,1]  # 神经网络架构
+    learning_rate: 0.01         # 学习率
+    data_size: 8000
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 0          # 0:sigmoid; 1:relu 2:tanh
+
+
+随机初始化（Random Initialization）：将权重和偏置随机地初始化为较小的随机值。这可以打破对称性，并为神经元提供不同的起点，促进网络的多样性和学习能力。常见的随机初始化方法包括从均匀分布或高斯分布中随机采样。但是会带来训练不稳定、对称性和梯度消失或爆炸的问题。
+Xavier初始化（Xavier Initialization）：也称为Glorot初始化，它是一种针对全连接层的参数初始化方法。它根据前一层和后一层神经元的数量来计算权重的初始范围。具体而言，根据梯度的传播和信号的稳定性考虑，Xavier初始化将权重初始化为均匀分布或高斯分布中的较小随机值。它有助于保持输入信号和梯度的方差在不同层之间大致相等。

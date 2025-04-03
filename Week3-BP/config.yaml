@@ -1,0 +1,117 @@
+# 添加全局配置
+Global:
+  random_seed: 1121  # 随机种子
+
+DataProcess:
+  Regression:
+    train_num: 8000     # 训练样本数
+    validate_num: 1000  # 验证样本数
+    test_num: 1000      # 测试样本数
+    noise_std: 0.009    # 噪声标准差(lab要求小于0.01)
+    data_path: "./dataset/Regression/"  # 数据集存储地址
+
+  Classifier:
+    images_addr: "./dataset/train_data/train-images.idx3-ubyte"
+    labels_addr: "./dataset/train_data/train-labels.idx1-ubyte"
+
+    # --------------测试集地址（面试时给出）-----------------
+    test_images: "./dataset/test_data/test-images.idx3-ubyte"        
+    test_labels: "./dataset/test_data/test-labels.idx1-ubyte"
+  
+    train_num: 50000       # 训练集大小
+    validate_num: 10000    # 验证集大小
+    test_num: 10000        # 测试集大小（面试时给出，可能要改）-
+    flatten: True          # 是否将图片展平为(1,28*28)
+    one_hot: True          # 标签是否采用one hot形式
+    data_path: "./dataset/Classifier/"  # 数据集存储地址
+
+
+Regression:
+  Train:
+    is_load: False              # 是否使用已有模型
+
+    # ---------------------可调参数-------------------------
+    epoches: 6000               # 训练步数
+    learning_rate: 0.01         # 学习率
+    batch_size: 20              # 一个batch中的数据数量
+    layer_arch: [1,32,64,64,1]  # 神经网络架构
+    init_method: 2              # 权重初始化方法: 0-零初始化, 1-均匀随机初始化, 2-正态随机初始化, 3-He初始化, 4-稀疏初始化
+                                # 5-Xavier/Glorot初始化(sigmoid均匀), 6-Xavier/Glorot初始化(sigmoid高斯), 7-Xavier/Glorot初始化(relu均匀)
+                                # 8-Xavier/Glorot初始化(relu高斯), 9--Xavier/Glorot初始化(tanh均匀), 10--Xavier/Glorot初始化(tanh高斯)
+    init_params_random_range: 0.15  # 随机初始化和正态随机初始化的参数范围
+    activation_function: 0          # 0-sigmoid 1-relu 2-tanh 3-Leaky ReLU 4-PReLU 5-GELU 6-Swish 7-SwiGLU
+    use_dropout: False              # 是否使用dropout
+    dropout_rates: [0.0, 0.2, 0.2, 0.0]  # 每层的dropout概率，包括输入层和输出层
+    
+    # ---------------------学习率调度-----------------------
+    use_lr_scheduler: False       # 是否使用学习率调度
+    use_cosine_decay: False       # 是否使用余弦衰减
+    use_warmup: False             # 是否使用学习率预热
+    warmup_epochs: 500           # 预热的epoch数量
+    min_lr_ratio: 0.01           # 最小学习率与初始学习率的比值
+    
+    data_size: 8000
+    x_data: "./dataset/Regression/train_data_x.npy"
+    y_data: "./dataset/Regression/train_data_y.npy"
+    model_path: "./model/Regression/"
+
+  Val:  
+    data_size: 1000
+    x_data: "./dataset/Regression/validate_data_x.npy"
+    y_data: "./dataset/Regression/validate_data_y.npy"
+
+  Test:
+    data_size: 1000
+    x_data: "./dataset/Regression/test_data_x.npy"
+    y_data: "./dataset/Regression/test_data_y.npy"
+    #------------------根据测试的模型修改--------------------
+    model_path: "./model/Regression/"
+    layer_arch: [1,32,64,64,1]  # 神经网络架构
+    batch_size: 20              # 一个batch中的数据数量
+    activation_function: 0          # 0-sigmoid 1-relu 2-tanh 3-Leaky ReLU 4-PReLU 5-GELU 6-Swish 7-SwiGLU
+
+
+Classifier:
+  Train:
+    is_load: False                  # 是否使用已有模型
+
+    # ---------------------可调参数-------------------------
+    epoches: 1000                     # 训练步数
+    model_path: "./model/Classifier/Tuning/13" # 暂时挪过来方便修改
+    learning_rate: 0.05             # 学习率
+    batch_size: 120                  # 一个batch中的数据数量
+    layer_arch: [784,256,128,10]     # 神经网络架构
+    init_method: 2              # 权重初始化方法: 0-零初始化, 1-均匀随机初始化, 2-正态随机初始化, 3-He初始化, 4-稀疏初始化
+                                # 5-Xavier/Glorot初始化(sigmoid均匀), 6-Xavier/Glorot初始化(sigmoid高斯), 7-Xavier/Glorot初始化(relu均匀)
+                                # 8-Xavier/Glorot初始化(relu高斯), 9--Xavier/Glorot初始化(tanh均匀), 10--Xavier/Glorot初始化(tanh高斯)
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 0          # 0-sigmoid 1-relu 2-tanh 3-Leaky ReLU 4-PReLU 5-GELU 6-Swish 7-SwiGLU
+    use_dropout: False               # 是否使用dropout
+    dropout_rates: [0.2, 0.5, 0.5, 0.0]  # 每层的dropout概率，包括输入层和输出层
+
+    # ---------------------学习率调度-----------------------
+    use_lr_scheduler: False       # 是否使用学习率调度
+    use_cosine_decay: False       # 是否使用余弦衰减
+    use_warmup: False             # 是否使用学习率预热
+    warmup_epochs: 100           # 预热的epoch数量
+    min_lr_ratio: 0.01           # 最小学习率与初始学习率的比值
+
+    data_size: 50000
+    data_path: "./dataset/Classifier/train_data.npy"
+    label_path: "./dataset/Classifier/train_label.npy"
+    # model_path: "./model/Classifier/Tuning/2"
+
+  Val:
+    data_size: 10000
+    data_path: "./dataset/Classifier/test_data.npy"
+    label_path: "./dataset/Classifier/test_label.npy"
+
+  Test: # 面试时给测试集，可能需要修改
+    data_size: 10000
+    data_path: "./dataset/Classifier/validate_data.npy"
+    label_path: "./dataset/Classifier/validate_label.npy"
+    #------------------根据测试的模型修改--------------------
+    model_path: "./model/Classifier/Tuning/11"
+    layer_arch: [784,256,10]     # 神经网络架构
+    batch_size: 50                  # 一个batch中的数据数量
+    activation_function: 0          # 0-sigmoid 1-relu 2-tanh 3-Leaky ReLU 4-PReLU 5-GELU 6-Swish 7-SwiGLU

@@ -1,0 +1,36 @@
+
+一、目前存储的模型：sigmoid和softmax都是原始的
+Epoch 280 Train Accuracy = 0.97344 1oss = 0.08348671330727761
+Epoch 280 Val   Accuracy =0.9654 1oss = 0.1196765664365405
+    batch_size: 20                  # 一个batch中的数据数量
+    epoches: 300（280最大）                     # 训练步数
+    layer_arch: [784,128,64,10]     # 神经网络架构
+    learning_rate: 0.01             # 学习率
+    data_size: 50000
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 0          # 0:sigmoid; 1:relu 2:tanh
+    
+
+二、tanh、原始softmax
+Epoch 300 Train Accuracy = 0.9427 loss = 0.1749537464110174
+Epoch 300 Val   Accuracy = 0.9404 loss = 0.19336819723547485
+    batch_size: 20                  # 一个batch中的数据数量
+    epoches: 300                     # 训练步数
+    layer_arch: [784,128,64,10]     # 神经网络架构
+    learning_rate: 0.01             # 学习率
+    data_size: 50000
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 2          # 0:sigmoid; 1:relu 2:tanh
+
+三、relu、改后softmax（不改会溢出）
+Epoch 10 Train Accuracy = 0.11356 loss = 2.301036049793347
+Epoch 10 Val   Accuracy = 0.1064 loss = 2.301874513435879
+Epoch 20 Train Accuracy = 0.11356 loss = 2.3010282435853844
+Epoch 20 Val   Accuracy = 0.1064 loss = 2.3020393596078343
+        batch_size: 20                  # 一个batch中的数据数量
+    epoches: 300                     # 训练步数
+    layer_arch: [784,128,64,10]     # 神经网络架构
+    learning_rate: 0.01             # 学习率
+    data_size: 50000
+    init_params_random_range: 0.15  # 初始化参数的标准差
+    activation_function: 1          # 0:sigmoid; 1:relu 2:tanh
