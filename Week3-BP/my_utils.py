@@ -132,16 +132,6 @@ def leaky_relu_derivation(x, alpha=0.01):
     grad[x < 0] = alpha
     return grad
 
-def prelu(x, alpha=0.01):
-    """PReLU激活函数 (参数化的Leaky ReLU)"""
-    return np.maximum(alpha * x, x)
-
-def prelu_derivation(x, alpha=0.01):
-    """PReLU激活函数的导数"""
-    grad = np.ones_like(x)
-    grad[x < 0] = alpha
-    return grad
-
 def gelu(x):
     """GELU (Gaussian Error Linear Unit) 激活函数"""
     return 0.5 * x * (1 + np.tanh(np.sqrt(2 / np.pi) * (x + 0.044715 * x**3)))
@@ -185,8 +175,8 @@ def swiglu_derivation(x):
     return result
 
 def softmax(x):
-    exp_x = np.exp(x)
-    #exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))    # 减去最大值避免数值溢出
+    # exp_x = np.exp(x)
+    exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))    # 减去最大值避免数值溢出
     return exp_x / np.sum(exp_x, axis=1, keepdims=True)
 
 def get_batch(data, labels, batch_size, shuffle=True):

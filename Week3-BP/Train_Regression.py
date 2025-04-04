@@ -49,15 +49,12 @@ if __name__ == "__main__":
         activation_function = my_utils.leaky_relu
         activation_derivation = my_utils.leaky_relu_derivation
     elif activation == 4:
-        activation_function = my_utils.prelu
-        activation_derivation = my_utils.prelu_derivation
-    elif activation == 5:
         activation_function = my_utils.gelu
         activation_derivation = my_utils.gelu_derivation
-    elif activation == 6:
+    elif activation == 5:
         activation_function = my_utils.swish
         activation_derivation = my_utils.swish_derivation
-    elif activation == 7:
+    elif activation == 6:
         activation_function = my_utils.swiglu
         activation_derivation = my_utils.swiglu_derivation
 

@@ -1,0 +1,2 @@
+Epoch 10 Train Accuracy = 0.90544 loss = 0.3266080916920968
+Epoch 10 Val   Accuracy = 0.9084 loss = 0.3134090771351152

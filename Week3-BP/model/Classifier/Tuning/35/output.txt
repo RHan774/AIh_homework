@@ -1,0 +1,308 @@
+Epoch 0, Learning Rate: 0.000020
+Epoch 10 Train Accuracy = 0.55916 loss = 2.022330744544625
+Epoch 10 Val   Accuracy = 0.5643 loss = 2.0146709053687637
+Epoch 10, Learning Rate: 0.000519
+Epoch 20 Train Accuracy = 0.79952 loss = 1.0255769993684298
+Epoch 20 Val   Accuracy = 0.8073 loss = 1.0083662324287825
+Epoch 20, Learning Rate: 0.001018
+Epoch 30 Train Accuracy = 0.8799 loss = 0.5117293322547152
+Epoch 30 Val   Accuracy = 0.8759 loss = 0.5058807062911141
+Epoch 30, Learning Rate: 0.001517
+Epoch 40 Train Accuracy = 0.9101 loss = 0.3446639951215166
+Epoch 40 Val   Accuracy = 0.904 loss = 0.35296888649364605
+Epoch 40, Learning Rate: 0.002016
+Epoch 50 Train Accuracy = 0.92592 loss = 0.26708706572482077
+Epoch 50 Val   Accuracy = 0.9168 loss = 0.29001403199799414
+Epoch 50, Learning Rate: 0.002515
+Epoch 60 Train Accuracy = 0.93986 loss = 0.21663697365480145
+Epoch 60 Val   Accuracy = 0.9253 loss = 0.2542475255784906
+Epoch 60, Learning Rate: 0.003014
+Epoch 70 Train Accuracy = 0.94798 loss = 0.1843283724665779
+Epoch 70 Val   Accuracy = 0.9345 loss = 0.2248506912322064
+Epoch 70, Learning Rate: 0.003513
+Epoch 80 Train Accuracy = 0.95632 loss = 0.15595593088307647
+Epoch 80 Val   Accuracy = 0.9414 loss = 0.20193666648623634
+Epoch 80, Learning Rate: 0.004012
+Epoch 90 Train Accuracy = 0.96208 loss = 0.1354026556343754
+Epoch 90 Val   Accuracy = 0.9463 loss = 0.1836206828331078
+Epoch 90, Learning Rate: 0.004511
+Epoch 100 Train Accuracy = 0.96822 loss = 0.11540077397869572
+Epoch 100 Val   Accuracy = 0.9486 loss = 0.1664064972474721
+Epoch 100, Learning Rate: 0.005010
+Epoch 110 Train Accuracy = 0.97128 loss = 0.10281424579598361
+Epoch 110 Val   Accuracy = 0.9516 loss = 0.15843306757882689
+Epoch 110, Learning Rate: 0.005509
+Epoch 120 Train Accuracy = 0.97568 loss = 0.09022114538426217
+Epoch 120 Val   Accuracy = 0.955 loss = 0.14565172903745058
+Epoch 120, Learning Rate: 0.006008
+Epoch 130 Train Accuracy = 0.97622 loss = 0.08466001110897074
+Epoch 130 Val   Accuracy = 0.9568 loss = 0.1379279684791109
+Epoch 130, Learning Rate: 0.006507
+Epoch 140 Train Accuracy = 0.97648 loss = 0.08580543181945054
+Epoch 140 Val   Accuracy = 0.9547 loss = 0.13877166440932812
+Epoch 140, Learning Rate: 0.007006
+Epoch 150 Train Accuracy = 0.97944 loss = 0.07360067087827679
+Epoch 150 Val   Accuracy = 0.9585 loss = 0.13118212009588104
+Epoch 150, Learning Rate: 0.007505
+Epoch 160 Train Accuracy = 0.97574 loss = 0.08137118526221307
+Epoch 160 Val   Accuracy = 0.9565 loss = 0.13335958688986183
+Epoch 160, Learning Rate: 0.008004
+Epoch 170 Train Accuracy = 0.97738 loss = 0.07556101212655401
+Epoch 170 Val   Accuracy = 0.9574 loss = 0.12706733851765342
+Epoch 170, Learning Rate: 0.008503
+Epoch 180 Train Accuracy = 0.97612 loss = 0.07625111971693281
+Epoch 180 Val   Accuracy = 0.9584 loss = 0.12315701693312671
+Epoch 180, Learning Rate: 0.009002
+Epoch 190 Train Accuracy = 0.97422 loss = 0.08058928515973103
+Epoch 190 Val   Accuracy = 0.9569 loss = 0.13309327806906962
+Epoch 190, Learning Rate: 0.009501
+Epoch 200 Train Accuracy = 0.97212 loss = 0.08860965987207246
+Epoch 200 Val   Accuracy = 0.9575 loss = 0.1340167670910862
+Epoch 200, Learning Rate: 0.010000
+Epoch 210 Train Accuracy = 0.97634 loss = 0.07594346282239706
+Epoch 210 Val   Accuracy = 0.9612 loss = 0.12383429236006226
+Epoch 210, Learning Rate: 0.009996
+Epoch 220 Train Accuracy = 0.97432 loss = 0.08176312426832337
+Epoch 220 Val   Accuracy = 0.9607 loss = 0.125450276484402
+Epoch 220, Learning Rate: 0.009985
+Epoch 230 Train Accuracy = 0.97532 loss = 0.0761228470389796
+Epoch 230 Val   Accuracy = 0.9585 loss = 0.12708642884725033
+Epoch 230, Learning Rate: 0.009965
+Epoch 240 Train Accuracy = 0.9774 loss = 0.07108158160547692
+Epoch 240 Val   Accuracy = 0.9619 loss = 0.11636785558508168
+Epoch 240, Learning Rate: 0.009939
+Epoch 250 Train Accuracy = 0.97704 loss = 0.07273243972233559
+Epoch 250 Val   Accuracy = 0.9626 loss = 0.1146739902684486
+Epoch 250, Learning Rate: 0.009904
+Epoch 260 Train Accuracy = 0.97724 loss = 0.07015426466099649
+Epoch 260 Val   Accuracy = 0.9607 loss = 0.11873795059174144
+Epoch 260, Learning Rate: 0.009862
+Epoch 270 Train Accuracy = 0.97918 loss = 0.06603000617332809
+Epoch 270 Val   Accuracy = 0.9661 loss = 0.10943308044956791
+Epoch 270, Learning Rate: 0.009813
+Epoch 280 Train Accuracy = 0.98008 loss = 0.06059793372614388
+Epoch 280 Val   Accuracy = 0.9631 loss = 0.10974258325617729
+Epoch 280, Learning Rate: 0.009756
+Epoch 290 Train Accuracy = 0.9783 loss = 0.06627783193553224
+Epoch 290 Val   Accuracy = 0.9638 loss = 0.1129112997377966
+Epoch 290, Learning Rate: 0.009692
+Epoch 300 Train Accuracy = 0.98084 loss = 0.05802622303246877
+Epoch 300 Val   Accuracy = 0.9663 loss = 0.1070532314542047
+Epoch 300, Learning Rate: 0.009620
+Epoch 310 Train Accuracy = 0.9827 loss = 0.05336066755515694
+Epoch 310 Val   Accuracy = 0.9675 loss = 0.10512757433713704
+Epoch 310, Learning Rate: 0.009542
+Epoch 320 Train Accuracy = 0.98366 loss = 0.049028612168374605
+Epoch 320 Val   Accuracy = 0.9673 loss = 0.09961174895451548
+Epoch 320, Learning Rate: 0.009456
+Epoch 330 Train Accuracy = 0.98586 loss = 0.043756909600315
+Epoch 330 Val   Accuracy = 0.9688 loss = 0.09736746200694626
+Epoch 330, Learning Rate: 0.009364
+Epoch 340 Train Accuracy = 0.98738 loss = 0.03824010531632798
+Epoch 340 Val   Accuracy = 0.9697 loss = 0.09605790220682628
+Epoch 340, Learning Rate: 0.009265
+Epoch 350 Train Accuracy = 0.98612 loss = 0.04076493861185669
+Epoch 350 Val   Accuracy = 0.9668 loss = 0.1029224602944557
+Epoch 350, Learning Rate: 0.009159
+Epoch 360 Train Accuracy = 0.98626 loss = 0.04131145011740064
+Epoch 360 Val   Accuracy = 0.9675 loss = 0.10359412460625467
+Epoch 360, Learning Rate: 0.009047
+Epoch 370 Train Accuracy = 0.9875 loss = 0.03918252723047339
+Epoch 370 Val   Accuracy = 0.9661 loss = 0.1041421862216066
+Epoch 370, Learning Rate: 0.008929
+Epoch 380 Train Accuracy = 0.99012 loss = 0.03069980317185039
+Epoch 380 Val   Accuracy = 0.9714 loss = 0.09104772119295934
+Epoch 380, Learning Rate: 0.008804
+Epoch 390 Train Accuracy = 0.98936 loss = 0.033221551173502166
+Epoch 390 Val   Accuracy = 0.9689 loss = 0.09665744098570528
+Epoch 390, Learning Rate: 0.008674
+Epoch 400 Train Accuracy = 0.98962 loss = 0.031552819495201744
+Epoch 400 Val   Accuracy = 0.9683 loss = 0.09739887885921907
+Epoch 400, Learning Rate: 0.008538
+Epoch 410 Train Accuracy = 0.99004 loss = 0.029824029341738514
+Epoch 410 Val   Accuracy = 0.9704 loss = 0.09355994970073292
+Epoch 410, Learning Rate: 0.008397
+Epoch 420 Train Accuracy = 0.9919 loss = 0.025818049656480525
+Epoch 420 Val   Accuracy = 0.9709 loss = 0.09458268381608141
+Epoch 420, Learning Rate: 0.008251
+Epoch 430 Train Accuracy = 0.99096 loss = 0.028020492851989383
+Epoch 430 Val   Accuracy = 0.9694 loss = 0.09972902650778492
+Epoch 430, Learning Rate: 0.008099
+Epoch 440 Train Accuracy = 0.994 loss = 0.019824478674607498
+Epoch 440 Val   Accuracy = 0.9698 loss = 0.10123341721056756
+Epoch 440, Learning Rate: 0.007943
+Epoch 450 Train Accuracy = 0.9951 loss = 0.016957335986617295
+Epoch 450 Val   Accuracy = 0.9705 loss = 0.09477497008154241
+Epoch 450, Learning Rate: 0.007782
+Epoch 460 Train Accuracy = 0.99506 loss = 0.016220564498632097
+Epoch 460 Val   Accuracy = 0.9716 loss = 0.09035102741160898
+Epoch 460, Learning Rate: 0.007617
+Epoch 470 Train Accuracy = 0.99546 loss = 0.016126706709878976
+Epoch 470 Val   Accuracy = 0.9723 loss = 0.09590223371884207
+Epoch 470, Learning Rate: 0.007448
+Epoch 480 Train Accuracy = 0.99688 loss = 0.011683015788348707
+Epoch 480 Val   Accuracy = 0.9731 loss = 0.08850262918578244
+Epoch 480, Learning Rate: 0.007275
+Epoch 490 Train Accuracy = 0.99788 loss = 0.008844981963842832
+Epoch 490 Val   Accuracy = 0.9718 loss = 0.09046511818569641
+Epoch 490, Learning Rate: 0.007099
+Epoch 500 Train Accuracy = 0.9984 loss = 0.007403994534339813
+Epoch 500 Val   Accuracy = 0.9739 loss = 0.09140629753218824
+Epoch 500, Learning Rate: 0.006920
+Epoch 510 Train Accuracy = 0.99878 loss = 0.0060966619219186904
+Epoch 510 Val   Accuracy = 0.9732 loss = 0.08998705063755172
+Epoch 510, Learning Rate: 0.006737
+Epoch 520 Train Accuracy = 0.99886 loss = 0.005856238795865973
+Epoch 520 Val   Accuracy = 0.9728 loss = 0.09169776949005456
+Epoch 520, Learning Rate: 0.006552
+Epoch 530 Train Accuracy = 0.99896 loss = 0.005333781832455056
+Epoch 530 Val   Accuracy = 0.9733 loss = 0.09211226539532277
+Epoch 530, Learning Rate: 0.006364
+Epoch 540 Train Accuracy = 0.99902 loss = 0.005051171805021106
+Epoch 540 Val   Accuracy = 0.9729 loss = 0.09230087394664514
+Epoch 540, Learning Rate: 0.006175
+Epoch 550 Train Accuracy = 0.99908 loss = 0.004830090508664236
+Epoch 550 Val   Accuracy = 0.9734 loss = 0.09233030773007768
+Epoch 550, Learning Rate: 0.005984
+Epoch 560 Train Accuracy = 0.99914 loss = 0.004663760708019748
+Epoch 560 Val   Accuracy = 0.9731 loss = 0.09250124514222836
+Epoch 560, Learning Rate: 0.005791
+Epoch 570 Train Accuracy = 0.99918 loss = 0.004522638835674109
+Epoch 570 Val   Accuracy = 0.9729 loss = 0.09290172734848057
+Epoch 570, Learning Rate: 0.005597
+Epoch 580 Train Accuracy = 0.99918 loss = 0.004382854075024907
+Epoch 580 Val   Accuracy = 0.973 loss = 0.09297279233494093
+Epoch 580, Learning Rate: 0.005402
+Epoch 590 Train Accuracy = 0.99918 loss = 0.004307296295395579
+Epoch 590 Val   Accuracy = 0.9735 loss = 0.09327231570901823
+Epoch 590, Learning Rate: 0.005206
+Epoch 600 Train Accuracy = 0.99918 loss = 0.004194022838333149
+Epoch 600 Val   Accuracy = 0.973 loss = 0.09334646316337142
+Epoch 600, Learning Rate: 0.005010
+Epoch 610 Train Accuracy = 0.99922 loss = 0.004101086685280529
+Epoch 610 Val   Accuracy = 0.9732 loss = 0.09357035087628139
+Epoch 610, Learning Rate: 0.004814
+Epoch 620 Train Accuracy = 0.99922 loss = 0.004025689685941763
+Epoch 620 Val   Accuracy = 0.9734 loss = 0.09375274276640148
+Epoch 620, Learning Rate: 0.004618
+Epoch 630 Train Accuracy = 0.99922 loss = 0.003949234383395141
+Epoch 630 Val   Accuracy = 0.9734 loss = 0.09391802820759511
+Epoch 630, Learning Rate: 0.004423
+Epoch 640 Train Accuracy = 0.99922 loss = 0.0038837716309969733
+Epoch 640 Val   Accuracy = 0.9737 loss = 0.09411395170735982
+Epoch 640, Learning Rate: 0.004229
+Epoch 650 Train Accuracy = 0.99926 loss = 0.003823759066496782
+Epoch 650 Val   Accuracy = 0.9739 loss = 0.09409723105398604
+Epoch 650, Learning Rate: 0.004036
+Epoch 660 Train Accuracy = 0.99928 loss = 0.0038067339399459536
+Epoch 660 Val   Accuracy = 0.9738 loss = 0.09403392244963683
+Epoch 660, Learning Rate: 0.003845
+Epoch 670 Train Accuracy = 0.99928 loss = 0.003753138773988415
+Epoch 670 Val   Accuracy = 0.9738 loss = 0.09415213063390118
+Epoch 670, Learning Rate: 0.003656
+Epoch 680 Train Accuracy = 0.99928 loss = 0.003693105850903525
+Epoch 680 Val   Accuracy = 0.974 loss = 0.09404719303791485
+Epoch 680, Learning Rate: 0.003468
+Epoch 690 Train Accuracy = 0.9993 loss = 0.0036472025064076636
+Epoch 690 Val   Accuracy = 0.9739 loss = 0.09423920680934361
+Epoch 690, Learning Rate: 0.003283
+Epoch 700 Train Accuracy = 0.9993 loss = 0.0036052764170721365
+Epoch 700 Val   Accuracy = 0.9739 loss = 0.09421638863719009
+Epoch 700, Learning Rate: 0.003100
+Epoch 710 Train Accuracy = 0.9993 loss = 0.0035620598263397746
+Epoch 710 Val   Accuracy = 0.974 loss = 0.09438899992965613
+Epoch 710, Learning Rate: 0.002921
+Epoch 720 Train Accuracy = 0.9993 loss = 0.003524273542922938
+Epoch 720 Val   Accuracy = 0.9741 loss = 0.0945035595484845
+Epoch 720, Learning Rate: 0.002745
+Epoch 730 Train Accuracy = 0.9993 loss = 0.0034906547714798957
+Epoch 730 Val   Accuracy = 0.9741 loss = 0.09447006302798805
+Epoch 730, Learning Rate: 0.002572
+Epoch 740 Train Accuracy = 0.9993 loss = 0.003456277969563069
+Epoch 740 Val   Accuracy = 0.9742 loss = 0.09456195071406549
+------------------- saving  model -------------------
+
+Epoch 740, Learning Rate: 0.002403
+Epoch 750 Train Accuracy = 0.9993 loss = 0.0034276660930875995
+Epoch 750 Val   Accuracy = 0.9741 loss = 0.09461375707180425
+Epoch 750, Learning Rate: 0.002238
+Epoch 760 Train Accuracy = 0.99932 loss = 0.0034026626264457263
+Epoch 760 Val   Accuracy = 0.9742 loss = 0.09463819177821309
+Epoch 760, Learning Rate: 0.002077
+Epoch 770 Train Accuracy = 0.99934 loss = 0.0033813793924850877
+Epoch 770 Val   Accuracy = 0.9742 loss = 0.09469723070516375
+Epoch 770, Learning Rate: 0.001921
+Epoch 780 Train Accuracy = 0.99934 loss = 0.0033623743137062077
+Epoch 780 Val   Accuracy = 0.9742 loss = 0.09471487513164355
+Epoch 780, Learning Rate: 0.001769
+Epoch 790 Train Accuracy = 0.99934 loss = 0.003344609176425006
+Epoch 790 Val   Accuracy = 0.9743 loss = 0.09474693223958114
+------------------- saving  model -------------------
+
+Epoch 790, Learning Rate: 0.001623
+Epoch 800 Train Accuracy = 0.99934 loss = 0.003328961418216147
+Epoch 800 Val   Accuracy = 0.9744 loss = 0.09477629264366244
+------------------- saving  model -------------------
+
+Epoch 800, Learning Rate: 0.001482
+Epoch 810 Train Accuracy = 0.99934 loss = 0.0033148282683579935
+Epoch 810 Val   Accuracy = 0.9745 loss = 0.09481408689024923
+------------------- saving  model -------------------
+
+Epoch 810, Learning Rate: 0.001346
+Epoch 820 Train Accuracy = 0.99934 loss = 0.00329860010788663
+Epoch 820 Val   Accuracy = 0.9744 loss = 0.09487361774983681
+Epoch 820, Learning Rate: 0.001216
+Epoch 830 Train Accuracy = 0.99934 loss = 0.003286715456865444
+Epoch 830 Val   Accuracy = 0.9744 loss = 0.09491461746021154
+Epoch 830, Learning Rate: 0.001091
+Epoch 840 Train Accuracy = 0.99934 loss = 0.0032765157610080593
+Epoch 840 Val   Accuracy = 0.9743 loss = 0.09494853247411228
+Epoch 840, Learning Rate: 0.000973
+Epoch 850 Train Accuracy = 0.99934 loss = 0.0032670273808116587
+Epoch 850 Val   Accuracy = 0.9743 loss = 0.0949851671414799
+Epoch 850, Learning Rate: 0.000861
+Epoch 860 Train Accuracy = 0.99934 loss = 0.0032584333983361287
+Epoch 860 Val   Accuracy = 0.9743 loss = 0.09503752625047006
+Epoch 860, Learning Rate: 0.000755
+Epoch 870 Train Accuracy = 0.99934 loss = 0.003251521007193084
+Epoch 870 Val   Accuracy = 0.9743 loss = 0.09506387521572758
+Epoch 870, Learning Rate: 0.000656
+Epoch 880 Train Accuracy = 0.99934 loss = 0.003245558856797084
+Epoch 880 Val   Accuracy = 0.9743 loss = 0.09508558378214589
+Epoch 880, Learning Rate: 0.000564
+Epoch 890 Train Accuracy = 0.99934 loss = 0.003240536239706682
+Epoch 890 Val   Accuracy = 0.9743 loss = 0.09510739126310977
+Epoch 890, Learning Rate: 0.000478
+Epoch 900 Train Accuracy = 0.99934 loss = 0.003236070231049969
+Epoch 900 Val   Accuracy = 0.9743 loss = 0.09513459691004843
+Epoch 900, Learning Rate: 0.000400
+Epoch 910 Train Accuracy = 0.99934 loss = 0.003231278840568654
+Epoch 910 Val   Accuracy = 0.9743 loss = 0.09511308836216233
+Epoch 910, Learning Rate: 0.000328
+Epoch 920 Train Accuracy = 0.99934 loss = 0.0032283081308009764
+Epoch 920 Val   Accuracy = 0.9743 loss = 0.09512902160865719
+Epoch 920, Learning Rate: 0.000264
+Epoch 930 Train Accuracy = 0.99934 loss = 0.0032260112877217683
+Epoch 930 Val   Accuracy = 0.9743 loss = 0.0951421128097689
+Epoch 930, Learning Rate: 0.000207
+Epoch 940 Train Accuracy = 0.99934 loss = 0.00322420470309411
+Epoch 940 Val   Accuracy = 0.9743 loss = 0.09514978399290487
+Epoch 940, Learning Rate: 0.000158
+Epoch 950 Train Accuracy = 0.99934 loss = 0.003222120219173613
+Epoch 950 Val   Accuracy = 0.9743 loss = 0.0951407314786649
+Epoch 950, Learning Rate: 0.000116
+Epoch 960 Train Accuracy = 0.99934 loss = 0.003221124048454408
+Epoch 960 Val   Accuracy = 0.9742 loss = 0.09514836681388218
+Epoch 960, Learning Rate: 0.000081
+Epoch 970 Train Accuracy = 0.99934 loss = 0.003220449439827932
+Epoch 970 Val   Accuracy = 0.9742 loss = 0.09515394680560323
+Epoch 970, Learning Rate: 0.000055
+Epoch 980 Train Accuracy = 0.99934 loss = 0.003220006626886236
+Epoch 980 Val   Accuracy = 0.9742 loss = 0.09515737984768725
+Epoch 980, Learning Rate: 0.000035
+Epoch 990 Train Accuracy = 0.99934 loss = 0.0032197181813406707
+Epoch 990 Val   Accuracy = 0.9742 loss = 0.09515951408483113
+Epoch 990, Learning Rate: 0.000024
+Epoch 1000 Train Accuracy = 0.99934 loss = 0.0032195085587690096
+Epoch 1000 Val   Accuracy = 0.9742 loss = 0.09516098819747351

@@ -49,15 +49,12 @@ if __name__ == "__main__":
         activation_function = my_utils.leaky_relu
         activation_derivation = my_utils.leaky_relu_derivation
     elif activation == 4:
-        activation_function = my_utils.prelu
-        activation_derivation = my_utils.prelu_derivation
-    elif activation == 5:
         activation_function = my_utils.gelu
         activation_derivation = my_utils.gelu_derivation
-    elif activation == 6:
+    elif activation == 5:
         activation_function = my_utils.swish
         activation_derivation = my_utils.swish_derivation
-    elif activation == 7:
+    elif activation == 6:
         activation_function = my_utils.swiglu
         activation_derivation = my_utils.swiglu_derivation
 
@@ -75,15 +72,15 @@ if __name__ == "__main__":
                       warmup_epochs, min_lr_ratio, epoches,
                       is_load, save_path)
     
-    max_accuracy = 0.9741   # 当前最大的正确率
+    max_accuracy = 0.9763   # 当前最大的正确率
     # 训练epoches步
     for epoch in range(1, epoches + 1):
-        # 每次训练batch_size大小的数据
-        for batch_data, batch_labels in my_utils.get_batch(train_data, train_labels, batch_size, shuffle=True):
-            ClassifierBP.train(batch_data, batch_labels)
+        # # 每次训练batch_size大小的数据
+        # for batch_data, batch_labels in my_utils.get_batch(train_data, train_labels, batch_size, shuffle=True):
+        #     ClassifierBP.train(batch_data, batch_labels)
 
         # 应用学习率调度时用这个版本
-        # ClassifierBP.train_epoch(train_data, train_labels)
+        ClassifierBP.train_epoch(train_data, train_labels)
         
         if epoch % 10 == 0:
             train_loss, train_accuracy = ClassifierBP.val(train_data, train_labels)
