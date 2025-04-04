@@ -75,7 +75,7 @@ if __name__ == "__main__":
                       warmup_epochs, min_lr_ratio, epoches,
                       is_load, save_path)
     
-    max_accuracy = 0   # 当前最大的正确率
+    max_accuracy = 0.9741   # 当前最大的正确率
     # 训练epoches步
     for epoch in range(1, epoches + 1):
         # 每次训练batch_size大小的数据

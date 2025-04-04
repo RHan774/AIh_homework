@@ -111,7 +111,7 @@ Classifier:
     data_path: "./dataset/Classifier/validate_data.npy"
     label_path: "./dataset/Classifier/validate_label.npy"
     #------------------根据测试的模型修改--------------------
-    model_path: "./model/Classifier/Tuning/4"
+    model_path: "./model/Classifier/Tuning/1"
     layer_arch: [784,256,128,10]     # 神经网络架构
     batch_size: 50                  # 一个batch中的数据数量
     activation_function: 0          # 0-sigmoid 1-relu 2-tanh 3-Leaky ReLU 4-PReLU 5-GELU 6-Swish 7-SwiGLU
