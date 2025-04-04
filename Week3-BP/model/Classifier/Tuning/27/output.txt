@@ -1,0 +1,4 @@
+Test Accuracy = 0.9728 loss = 0.10972818903247121
+
+Epoch 710 Train Accuracy = 0.99354 loss = 0.018281775653755217
+Epoch 710 Val   Accuracy = 0.9737 loss = 0.08930504921876709

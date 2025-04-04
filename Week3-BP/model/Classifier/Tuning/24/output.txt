@@ -1,0 +1,4 @@
+Test Accuracy = 0.9743 loss = 0.11387746937562024
+
+Epoch 860 Train Accuracy = 0.99966 loss = 0.0017577335683891593
+Epoch 860 Val   Accuracy = 0.9746 loss = 0.10066422344835158

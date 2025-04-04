@@ -1,0 +1,4 @@
+Epoch 930 Train Accuracy = 0.99434 loss = 0.018482317418073
+Epoch 930 Val   Accuracy = 0.9753 loss = 0.0897734320637053
+
+Test Accuracy = 0.9737 loss = 0.10277228921795063

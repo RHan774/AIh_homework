@@ -1,0 +1,4 @@
+Epoch 660 Train Accuracy = 0.99588 loss = 0.013422810276274715
+Epoch 660 Val   Accuracy = 0.9737 loss = 0.09019814023196748
+
+Test Accuracy = 0.9757 loss = 0.1040872670311113

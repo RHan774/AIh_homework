@@ -1,0 +1,4 @@
+Test Accuracy = 0.9667 loss = 0.11734007403505596
+
+Epoch 120 Train Accuracy = 0.99694 loss = 0.017303256891992767
+Epoch 120 Val   Accuracy = 0.9635 loss = 0.11296048855552555

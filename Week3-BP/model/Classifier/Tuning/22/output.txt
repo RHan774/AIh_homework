@@ -1,0 +1,4 @@
+Test Accuracy = 0.9662 loss = 0.12578112581765177
+
+Epoch 210 Train Accuracy = 0.99776 loss = 0.011798485654761971
+Epoch 210 Val   Accuracy = 0.9654 loss = 0.11829529268121805

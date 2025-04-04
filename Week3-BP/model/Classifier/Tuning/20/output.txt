@@ -1,0 +1,5 @@
+Epoch 890 Train Accuracy = 0.99058 loss = 0.028688103058198848
+Epoch 890 Val   Accuracy = 0.9755 loss = 0.08727639603621572
+
+验证：
+Test Accuracy = 0.9703 loss = 0.10336817267709841
