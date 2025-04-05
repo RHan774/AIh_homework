@@ -1,5 +1,5 @@
-*.md
 命令.txt
 .ipynb_checkpoints/
 __pycache__/
 config.yaml
+*.zip
