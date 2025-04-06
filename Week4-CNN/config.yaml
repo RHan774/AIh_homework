@@ -1,0 +1,131 @@
+Global:
+  random_seed: 1121  # 随机种子
+
+DataProcess:
+  MNIST:
+    images_addr: "./dataset/MNIST/train_data/train-images.idx3-ubyte"
+    labels_addr: "./dataset/MNIST/train_data/train-labels.idx1-ubyte"
+
+    # --------------测试集地址-----------------
+    test_images: "./dataset/MNIST/test_data/test-images.idx3-ubyte"        
+    test_labels: "./dataset/MNIST/test_data/test-labels.idx1-ubyte"
+  
+    train_num: 50000       # 训练集大小
+    validate_num: 10000    # 验证集大小
+    test_num: 10000        # 测试集大小
+    flatten: False         # CNN模型中不将图片展平
+    one_hot: True          # 标签是否采用one hot形式
+    data_path: "./dataset/MNIST/"  # 数据集存储地址
+  
+  CIFAR10:
+    data_path: "./dataset/cifar-10-batches-py/"
+    train_num: 40000       # 训练集大小
+    validate_num: 10000    # 验证集大小
+    test_num: 10000        # 测试集大小
+    flatten: False         # CNN模型中不将图片展平
+    one_hot: True          # 标签是否采用one hot形式
+    class_num: 10          # 类别数量
+
+MNIST:
+  Train:
+    is_load: False              # 是否使用已有模型
+    epoches: 50                # 训练步数
+    learning_rate: 0.01         # 学习率
+    batch_size: 32              # 一个batch中的数据数量
+    init_method: 3              # 权重初始化方法: 0-零初始化, 1-均匀随机初始化, 2-正态随机初始化, 3-He初始化
+    init_params_random_range: 0.15  # 随机初始化和正态随机初始化的参数范围
+    activation_function: 1      # 0-sigmoid 1-relu 2-tanh 3-Leaky ReLU 4-PReLU
+    
+    # CNN架构参数
+    conv_channels: [1, 6, 16]   # 卷积层通道数 (第一个值必须是输入通道数)
+    conv_kernel_sizes: [5, 5]   # 卷积核大小
+    conv_strides: [1, 1]        # 卷积步长
+    conv_paddings: [2, 0]       # 卷积填充大小 (填充为2保持特征图大小不变)
+    pool_sizes: [2, 2]          # 池化大小
+    pool_strides: [2, 2]        # 池化步长
+    fc_sizes: [400, 120, 80, 10]     # 全连接层大小 (第一个是最后的池化层输出大小，最后一个是类别数)
+    
+    use_dropout: True           # 是否使用dropout
+    dropout_rates: [0.25, 0.5]  # 池化层和全连接层的dropout概率
+    
+    # 学习率调度
+    use_lr_scheduler: False        # 是否使用学习率调度
+    use_cosine_decay: False        # 是否使用余弦衰减
+    use_warmup: False              # 是否使用学习率预热
+    warmup_epochs: 5              # 预热的epoch数量
+    min_lr_ratio: 0.001           # 最小学习率与初始学习率的比值
+    
+    data_path: "./dataset/MNIST/train_data.npy"
+    label_path: "./dataset/MNIST/train_label.npy"
+    model_path: "./model/MNIST/"
+
+  Val:
+    data_path: "./dataset/MNIST/val_data.npy"
+    label_path: "./dataset/MNIST/val_label.npy"
+
+  Test:
+    data_path: "./dataset/MNIST/test_data.npy"
+    label_path: "./dataset/MNIST/test_label.npy"
+    #------------根据测试的模型修改-------------
+    model_path: "./model/MNIST/"
+    batch_size: 64
+    activation_function: 1      # 0-sigmoid 1-relu 2-tanh 3-Leaky ReLU 4-PReLU
+    conv_channels: [1, 6, 16]   # 卷积层通道数 (第一个值必须是输入通道数)
+    conv_kernel_sizes: [5, 5]   # 卷积核大小
+    conv_strides: [1, 1]        # 卷积步长
+    conv_paddings: [2, 0]       # 卷积填充大小
+    pool_sizes: [2, 2]          # 池化大小
+    pool_strides: [2, 2]        # 池化步长
+    fc_sizes: [400, 120, 80, 10]     # 全连接层大小 (第一个是最后的池化层输出大小，最后一个是类别数)
+    
+CIFAR10:
+  Train:
+    is_load: False              # 是否使用已有模型
+    epoches: 100                # 训练步数
+    learning_rate: 0.01         # 学习率
+    batch_size: 32              # 一个batch中的数据数量
+    init_method: 3              # 权重初始化方法: 0-零初始化, 1-均匀随机初始化, 2-正态随机初始化, 3-He初始化
+    init_params_random_range: 0.15  # 随机初始化和正态随机初始化的参数范围
+    activation_function: 1      # 0-sigmoid 1-relu 2-tanh 3-Leaky ReLU 4-PReLU
+    
+    # CNN架构参数
+    conv_channels: [3, 32, 64, 128]  # 卷积层通道数 (第一个值必须是输入通道数)
+    conv_kernel_sizes: [3, 3, 3]   # 卷积核大小
+    conv_strides: [1, 1, 1]        # 卷积步长
+    conv_paddings: [1, 1, 1]       # 卷积填充大小 (填充为1保持特征图大小不变)
+    pool_sizes: [2, 2, 2]          # 池化大小
+    pool_strides: [2, 2, 2]        # 池化步长
+    fc_sizes: [2048, 512, 10]         # 全连接层大小 (第一个是最后的池化层输出大小，最后一个是类别数)
+    
+    use_dropout: True           # 是否使用dropout
+    dropout_rates: [0.25, 0.5]  # 卷积层和全连接层的dropout概率
+    
+    # 学习率调度
+    use_lr_scheduler: True        # 是否使用学习率调度
+    use_cosine_decay: True        # 是否使用余弦衰减
+    use_warmup: True              # 是否使用学习率预热
+    warmup_epochs: 5              # 预热的epoch数量
+    min_lr_ratio: 0.001           # 最小学习率与初始学习率的比值
+    
+    data_path: "./dataset/CIFAR10/train_data.npy"
+    label_path: "./dataset/CIFAR10/train_label.npy"
+    model_path: "./model/CIFAR10/"
+
+  Val:
+    data_path: "./dataset/CIFAR10/val_data.npy"
+    label_path: "./dataset/CIFAR10/val_label.npy"
+
+  Test:
+    data_path: "./dataset/CIFAR10/test_data.npy"
+    label_path: "./dataset/CIFAR10/test_label.npy"
+    #------------根据要测试的模型修改---------------
+    model_path: "./model/CIFAR10/"
+    batch_size: 64
+    activation_function: 1      # 0-sigmoid 1-relu 2-tanh 3-Leaky ReLU 4-PReLU
+    conv_channels: [3, 32, 64, 128]  # 卷积层通道数 (第一个值必须是输入通道数)
+    conv_kernel_sizes: [3, 3, 3]   # 卷积核大小
+    conv_strides: [1, 1, 1]        # 卷积步长
+    conv_paddings: [1, 1, 1]       # 卷积填充大小 (与训练保持一致)
+    pool_sizes: [2, 2, 2]          # 池化大小
+    pool_strides: [2, 2, 2]        # 池化步长
+    fc_sizes: [2048, 512, 10]         # 全连接层大小 (第一个是最后的池化层输出大小，最后一个是类别数)
