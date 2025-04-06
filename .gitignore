@@ -1,3 +1,9 @@
 命令.txt
 .ipynb_checkpoints/
 __pycache__/
+test_data.npy
+test_lable.npy
+train_data.npy
+train_lable.npy
+val_data.npy
+val_label.npy
