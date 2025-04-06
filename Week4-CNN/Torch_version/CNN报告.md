@@ -93,10 +93,19 @@ class CNNTorch(nn.Module):
 
 **代码解析**：
 
-1. **初始化参数**：模型接收各种参数来配置网络结构，包括卷积层通道数、卷积核大小、步长、填充大小、池化层参数以及全连接层大小等。
+1. **初始化参数**：
+   - `conv_channels`: 包含输入通道数和各卷积层输出通道数的列表。例如`[1, 6, 16]`表示输入通道为1，第一个卷积层输出6个通道，第二个卷积层输出16个通道
+   - `conv_kernel_sizes`: 卷积核大小列表
+   - `conv_strides`: 卷积步长列表
+   - `conv_paddings`: 卷积填充大小列表
+   - `pool_sizes`: 池化核大小列表
+   - `pool_strides`: 池化步长列表
+   - `fc_sizes`: 全连接层大小列表，第一个是最后的池化层输出特征数，最后一个是类别数
+   - `dropout_rate`: Dropout比率，控制被"关闭"的神经元比例
+   - `use_dropout`: 是否使用Dropout
 
 2. **构建卷积层**：使用循环动态创建卷积层，每层包括：
-   - 卷积操作：`nn.Conv2d`，通过参数控制特征图大小
+   - 卷积操作：`nn.Conv2d`，使用`conv_channels`列表中的相邻元素作为输入和输出通道数
    - ReLU激活函数：引入非线性变换
    - 最大池化：`nn.MaxPool2d`，降低特征图尺寸，增加感受野
    - 可选的Dropout：通过`use_dropout`参数控制是否添加
@@ -302,9 +311,19 @@ def validate(model, val_loader, criterion, device):
 以MNIST训练脚本为例，分析关键代码段：
 
 ```python
+# 获取CNN架构参数
+conv_channels = config_train['conv_channels']  # 包含输入通道数
+conv_kernel_sizes = config_train['conv_kernel_sizes']
+conv_strides = config_train['conv_strides']
+conv_paddings = config_train['conv_paddings']
+pool_sizes = config_train['pool_sizes']
+pool_strides = config_train['pool_strides']
+fc_sizes = config_train['fc_sizes']
+use_dropout = config_train['use_dropout']
+dropout_rate = config_train['dropout_rates'][0] if len(config_train['dropout_rates']) > 0 else 0.0
+
 # 初始化CNN模型
 model = CNNTorch(
-    in_channels=in_channels,
     conv_channels=conv_channels,
     conv_kernel_sizes=conv_kernel_sizes,
     conv_strides=conv_strides,
@@ -312,7 +331,7 @@ model = CNNTorch(
     pool_sizes=pool_sizes,
     pool_strides=pool_strides,
     fc_sizes=fc_sizes,
-    dropout_rate=dropout_rates,
+    dropout_rate=dropout_rate,
     use_dropout=use_dropout
 )
 

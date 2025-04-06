@@ -7,8 +7,6 @@ import yaml
 from easydict import EasyDict
 import argparse
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix
-import seaborn as sns
 
 def read_config(task_kind):
     """
@@ -218,6 +216,94 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device):
     
     return train_loss, train_acc
 
+def train(model, config_train, config_val):
+    """训练模型"""
+    # 训练参数
+    batch_size = config_train['batch_size']
+    epochs = config_train['epoches']
+    learning_rate = config_train['learning_rate']
+
+    # 数据和模型路径
+    train_datapath = config_train['data_path']
+    train_labelpath = config_train['label_path']
+    val_datapath = config_val['data_path']
+    val_labelpath = config_val['label_path']
+    save_path = os.path.join(config_train['model_path'], 'model_torch.pth')
+    
+    # 准备数据
+    train_data, train_labels = prepare_data(train_datapath, train_labelpath)
+    val_data, val_labels = prepare_data(val_datapath, val_labelpath)
+    
+    # 创建数据加载器
+    train_loader = create_data_loaders(train_data, train_labels, batch_size, shuffle_train=True)
+    val_loader = create_data_loaders(val_data, val_labels, batch_size, shuffle_train=False)
+    
+    # 获取设备
+    device = get_device()
+    print(f"使用设备: {device}")
+    
+    # 初始化权重
+    initialize_model(model, config_train['init_method'])
+    
+    # 移动模型到设备
+    model.to(device)
+    
+    # 定义损失函数和优化器
+    criterion = nn.CrossEntropyLoss()
+    optimizer = create_optimizer(model, learning_rate, is_cifar=False)
+    
+    # 学习率调度
+    use_lr_scheduler = config_train['use_lr_scheduler']
+    if use_lr_scheduler:
+        scheduler = create_scheduler(
+            optimizer, epochs, learning_rate, config_train['min_lr_ratio'], 
+            config_train['use_cosine_decay'], is_cifar=False)
+    
+    # 用于保存训练历史的列表
+    train_losses = []
+    val_losses = []
+    train_accs = []
+    val_accs = []
+    
+    # 记录最佳验证准确率
+    best_val_acc = 0.0
+    
+    # 训练循环
+    for epoch in range(epochs):
+        # 训练一个epoch
+        train_loss, train_acc = train_one_epoch(
+            model, train_loader, criterion, optimizer, device)
+        
+        # 验证
+        val_loss, val_acc = validate(model, val_loader, criterion, device)
+        
+        # 保存训练历史
+        train_losses.append(train_loss)
+        train_accs.append(train_acc)
+        val_losses.append(val_loss)
+        val_accs.append(val_acc)
+        
+        # 更新学习率
+        if use_lr_scheduler:
+            scheduler.step()
+        
+        # 打印进度
+        print(f'Epoch {epoch+1}/{epochs} | Train Loss: {train_loss:.4f} | Train Acc: {train_acc:.2f}% | Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.2f}%')
+        
+        # 保存最佳模型
+        if val_acc > best_val_acc:
+            print(f'验证准确率提升 ({best_val_acc:.2f}% --> {val_acc:.2f}%)，保存模型...')
+            model.save_model(save_path)
+            best_val_acc = val_acc
+    
+    # 绘制训练曲线
+    curves_path = os.path.join(os.path.dirname(save_path), 'training_curves.png')
+    plot_training_curves(train_losses, val_losses, train_accs, val_accs, curves_path)
+    
+    print(f"训练完成！最佳验证准确率: {best_val_acc:.2f}%")
+    print(f"模型保存于: {save_path}")
+
+
 def validate(model, val_loader, criterion, device):
     """
     验证模型性能
@@ -361,35 +447,6 @@ def plot_training_curves(train_losses, val_losses, train_accs, val_accs, save_pa
     plt.close()
     
     print(f"训练曲线保存于: {save_path}")
-
-def plot_confusion_matrix(true_labels, pred_labels, save_path, class_names=None):
-    """
-    绘制混淆矩阵
-    
-    参数:
-        true_labels: 真实标签列表
-        pred_labels: 预测标签列表
-        save_path: 保存路径
-        class_names: 类别名称列表
-    """
-    cm = confusion_matrix(true_labels, pred_labels)
-    plt.figure(figsize=(10, 8))
-    
-    if class_names:
-        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
-                    xticklabels=class_names, yticklabels=class_names)
-    else:
-        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-    
-    plt.xlabel('预测标签')
-    plt.ylabel('真实标签')
-    plt.title('混淆矩阵')
-    
-    # 保存混淆矩阵
-    plt.savefig(save_path)
-    plt.close()
-    
-    print(f"混淆矩阵保存于: {save_path}")
 
 def visualize_errors(data, true_labels, pred_labels, save_path, class_names=None, num_samples=5):
     """

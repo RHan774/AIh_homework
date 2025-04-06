@@ -53,7 +53,6 @@ def train(config_train, config_val):
     
     # 初始化CNN模型
     model = CNNTorch(
-        in_channels=in_channels,
         conv_channels=conv_channels,
         conv_kernel_sizes=conv_kernel_sizes,
         conv_strides=conv_strides,
@@ -138,4 +137,29 @@ if __name__ == "__main__":
     config_train = config['Train']
     config_val = config['Val']
     
-    train(config_train, config_val) 
+    # 获取CNN架构参数
+    conv_channels = config_train['conv_channels']  # 包含输入通道数
+    conv_kernel_sizes = config_train['conv_kernel_sizes']
+    conv_strides = config_train['conv_strides']
+    conv_paddings = config_train['conv_paddings']
+    pool_sizes = config_train['pool_sizes']
+    pool_strides = config_train['pool_strides']
+    fc_sizes = config_train['fc_sizes']
+    use_dropout = config_train['use_dropout']
+    dropout_rate = config_train['dropout_rates'][0] if len(config_train['dropout_rates']) > 0 else 0.0
+    
+    # 初始化CNN模型
+    model = CNNTorch(
+        conv_channels=conv_channels,
+        conv_kernel_sizes=conv_kernel_sizes,
+        conv_strides=conv_strides,
+        conv_paddings=conv_paddings,
+        pool_sizes=pool_sizes,
+        pool_strides=pool_strides,
+        fc_sizes=fc_sizes,
+        dropout_rate=dropout_rate,
+        use_dropout=use_dropout
+    )
+    
+    # 调用训练函数，指定是CIFAR10数据集
+    my_utils.train(model, config_train, config_val) 
