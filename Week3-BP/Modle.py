@@ -142,10 +142,17 @@ class MP(object):
     def backward(self, grade, activation_derivation):
         if self.output_layer:
             # 回归输出层和分类输出层对linear_data求导结果
+<<<<<<< HEAD
             delta_linear_output = -grade    # loss = true - pred
         else:
             # 非输出层，需要计算激活函数的导数
             delta_linear_output = grade * activation_derivation(self.output_data)   # loss是上一层传下来的
+=======
+            delta_linear_output = -grade    # grade = true - pred
+        else:
+            # 非输出层，需要计算激活函数的导数
+            delta_linear_output = grade * activation_derivation(self.output_data)   # grade是上一层传下来的
+>>>>>>> a320830cd (全部重新提交啊啊啊)
         
         # 计算权重和偏置的梯度
         # input_data: (batch_size, input_size)

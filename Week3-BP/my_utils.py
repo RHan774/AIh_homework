@@ -21,7 +21,11 @@ def get_lr_by_scheduler(base_lr, current_epoch, total_epochs, warmup_epochs=0, u
     """计算当前epoch的学习率
     
     Args:
+<<<<<<< HEAD
         base_lr: 基础学习率（初始学习率）
+=======
+        base_lr: 基础学习率（设置的学习率）
+>>>>>>> a320830cd (全部重新提交啊啊啊)
         current_epoch: 当前的epoch数
         total_epochs: 总的训练epoch数
         warmup_epochs: 预热的epoch数
