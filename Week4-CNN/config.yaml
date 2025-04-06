@@ -29,7 +29,7 @@ DataProcess:
 MNIST:
   Train:
     is_load: False              # 是否使用已有模型
-    epoches: 50                # 训练步数
+    epoches: 100                # 训练步数
     learning_rate: 0.01         # 学习率
     batch_size: 32              # 一个batch中的数据数量
     init_method: 3              # 权重初始化方法: 0-零初始化, 1-均匀随机初始化, 2-正态随机初始化, 3-He初始化
@@ -49,15 +49,15 @@ MNIST:
     dropout_rates: [0.25, 0.5]  # 池化层和全连接层的dropout概率
     
     # 学习率调度
-    use_lr_scheduler: False        # 是否使用学习率调度
-    use_cosine_decay: False        # 是否使用余弦衰减
-    use_warmup: False              # 是否使用学习率预热
-    warmup_epochs: 5              # 预热的epoch数量
+    use_lr_scheduler: True        # 是否使用学习率调度
+    use_cosine_decay: True        # 是否使用余弦衰减
+    use_warmup: True              # 是否使用学习率预热
+    warmup_epochs: 10              # 预热的epoch数量
     min_lr_ratio: 0.001           # 最小学习率与初始学习率的比值
     
     data_path: "./dataset/MNIST/train_data.npy"
     label_path: "./dataset/MNIST/train_label.npy"
-    model_path: "./model/MNIST/"
+    model_path: "./model/MNIST/torch/1"
 
   Val:
     data_path: "./dataset/MNIST/val_data.npy"
@@ -109,7 +109,7 @@ CIFAR10:
     
     data_path: "./dataset/CIFAR10/train_data.npy"
     label_path: "./dataset/CIFAR10/train_label.npy"
-    model_path: "./model/CIFAR10/"
+    model_path: "./model/CIFAR10/torch/1"
 
   Val:
     data_path: "./dataset/CIFAR10/val_data.npy"

@@ -1,6 +1,6 @@
 import my_utils
 import numpy as np
-from Model import CNN
+from Model_torch import CNN
 
 # 从config文件中读取配置的参数
 dataset = 'MNIST'
